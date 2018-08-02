@@ -1,0 +1,13 @@
+.main-promo{
+	width: 709px;height: 342px;margin: 50px auto;
+	position: relative;background: pink;overflow: 1hidden;
+}
+.main-promo .font_bottom{
+	height: 36px;width: 709px;position: absolute;left: 0;bottom: 0;z-index: 10;
+}
+.main-promo .font_bottom .switch{
+	width: 176px;height: 36px;line-height: 36px;text-align: center;float: left;font-size: 14px;
+	background: rgba(0,0,0,0.5);filter: alpha(opacity=50);margin-left: 1px;cursor: pointer;color: white;
+}
+.main-promo .font_bottom .switched{background: rgba(255,0,0,0.5);filter: alpha(opacity=50)}
+.main-promo .pic_show{position: absolute;left: 0;bottom: 0;width: 709px;height: 342px;}

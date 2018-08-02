@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>模仿淘宝便民服务</title>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script type="text/javascript" src="js/move.js"></script>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBox=document.getElementById('wrap');
+				var oBox_div=oBox.getElementsByTagName('a');
+//				alert(oBox_div.length)
+				for(var i=0;i<oBox_div.length;i++){
+					oBox_div[i].onmouseover=function(){
+						var oP=this.getElementsByTagName('p')[0];
+						oP.style.color='#EE430A';
+						var ico=this.getElementsByTagName('i')[0];
+						startMove(ico,{top:-10,opacity:0},function(){
+							ico.style.top=30+'px';
+							startMove(ico,{top:0,opacity:100});
+						});
+					}
+					oBox_div[i].onmouseout=function(){
+						var oP=this.getElementsByTagName('p')[0];
+						oP.style.color='#676767';
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="wrap" class="box">
+			<span class="info">便民服务</span>
+			<div class="box_div box_1"><a href=""><i class="fa fa-mobile fa-2x"></i><p>话费</p></a></div>
+			<div class="box_div box_2"><a href=""><i class="fa fa-gamepad fa-2x"></i><p>游戏</p></a></div>
+			<div class="box_div box_3"><a href=""><i class="fa fa-plane fa-2x"></i><p>旅行</p></a></div>
+			<div class="box_div box_4"><a href=""><i class="fa fa-film fa-2x"></i><p>电影票</p></a></div>
+			<div class="box_div box_5"><a href=""><i class="fa fa-cutlery fa-2x"></i><p>点外卖</p></a></div>
+			<div class="box_div box_6"><a href=""><i class="fa fa-usd fa-2x"></i><p>理财</p></a></div>
+			<div class="box_div box_7"><a href=""><i class="fa fa-book fa-2x"></i><p>电子书</p></a></div>
+			<div class="box_div box_8"><a href=""><i class="fa fa-music fa-2x"></i><p>音乐</p></a></div>
+			<div class="box_div box_8"><a href=""><i class="fa fa-tint fa-2x"></i><p>水电煤</p></a></div>
+		</div>
+	</body>
+</html>

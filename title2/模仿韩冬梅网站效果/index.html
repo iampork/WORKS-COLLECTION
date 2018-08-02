@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>点击切换图片</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script type="text/javascript" src="js/move.js"></script>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oPre=document.getElementById('pre');
+				var oNext=document.getElementById('next');
+				var aLi=document.getElementsByTagName('li');
+				var arr=[];
+				for(var i=0;i<aLi.length;i++){
+					var oImg=aLi[i].getElementsByTagName('img')[0];
+					arr.push([parseInt(getStyle(aLi[i],'left')),parseInt(getStyle(aLi[i],'top')),getStyle(aLi[i],'opacity')*100,getStyle(aLi[i],'zIndex'),oImg.width]);
+				}
+//				console.dir(arr);
+				oPre.onclick=function(){
+					arr.push(arr[0]);
+					arr.shift();
+					for(var i=0;i<aLi.length;i++){
+						var oImg=aLi[i].getElementsByTagName('img')[0];
+						aLi[i].style.zIndex=arr[i][3];
+						startMove(aLi[i],{left:arr[i][0],top:arr[i][1],opacity:arr[i][2]});
+						startMove(oImg,{width:arr[i][4]});
+					}
+				}
+				oNext.onclick=function(){
+					arr.unshift(arr[arr.length-1]);
+					arr.pop();
+					for(var i=0;i<aLi.length;i++){
+						var oImg=aLi[i].getElementsByTagName('img')[0];
+						aLi[i].style.zIndex=arr[i][3];
+						startMove(aLi[i],{left:arr[i][0],top:arr[i][1],opacity:arr[i][2]});
+						startMove(oImg,{width:arr[i][4]});
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box" class="wrap">
+			<div id="pre" class="pre"><span><img src="img/prev.png"/></span></div>
+			<div id="next" class="next"><span><img src="img/next.png"/></span></div>
+			<div id="show" class="show">
+				<ul id="show_ul">
+					<li class="pic_0"><a ><img src="img/1.jpg" alt="" width="100" /></a></li>
+					<li class="pic_1"><a ><img src="img/2.jpg" alt="" width="270" /></a></li>
+					<li class="pic_2"><a ><img src="img/3.jpg" alt="" width="510" /></a></li>
+					<li class="pic_3"><a ><img src="img/4.jpg" alt="" width="680" /></a></li>
+					<li class="pic_4"><a ><img src="img/5.jpg" alt="" width="510" /></a></li>
+					<li class="pic_5"><a ><img src="img/6.jpg" alt="" width="270" /></a></li>
+					<li class="pic_6"><a ><img src="img/7.jpg" alt="" width="100" /></a></li>
+					<li class="pic_7"><a ><img src="img/8.jpg" alt="" width="100" /></a></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

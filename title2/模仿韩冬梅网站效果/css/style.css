@@ -1,0 +1,14 @@
+.wrap{width: 970px;height: 344px;position: relative;overflow: hidden;margin: 20px auto;}
+.pre{width: 80px;height: 70px;position: absolute;left: 80px;top: 128px;cursor: pointer;z-index: 5;}
+.next{width: 80px;height: 70px;position: absolute;right: 80px;top: 128px;cursor: pointer;z-index: 5;}
+.wrap ul{width: 970px;height: 344px;position: absolute;top: 0px;left: 0px;z-index: 1;}
+.wrap li{position: absolute;}
+.wrap li a{cursor: pointer;}
+.pic_0{top: -104px; left: 0; z-index: 1; filter: alpha(opacity=0); opacity: 0; }
+.pic_1{ top: 104px; left: 0; z-index: 2; filter: alpha(opacity=60); opacity: 0.6; }
+.pic_2{top: 43px; left: 50px; z-index: 3; filter: alpha(opacity=80); opacity: 0.8; }
+.pic_3{top: 0; left: 145px; z-index: 4;}
+.pic_4{top: 43px; right: 50px; z-index: 3; filter: alpha(opacity=80); opacity: 0.8;}
+.pic_5{top: 104px; right: 0; z-index: 2; filter: alpha(opacity=60); opacity: 0.6;}
+.pic_6{top: -104px; right: 0; z-index: 1; filter: alpha(opacity=0); opacity: 0; }
+.pic_7{top: -104px; right: 0; z-index: 1; filter: alpha(opacity=0); opacity: 0; }
