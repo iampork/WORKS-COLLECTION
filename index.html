@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>小实验</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css" media="all"/>
+</head>
+<body>
+<div class="wrap shadow">
+    <ol id="ol" class="list">
+
+    </ol>
+</div>
+<script type="text/javascript">
+    var str = '',
+        data = [
+            [
+                { title : 'HTML5+CSS3'},
+                { url : 'title1/task1.html', title : '模拟简单博客' },
+                { url : 'title1/task2.html', title : '模拟报纸排版' },
+                { url : 'title1/task3.html', title : '新世界' },
+                { url : 'title1/css3动态导航/nav.html', title : 'css3动态导航' },
+            ],
+            [
+                { title : '常用图片相关代码'},
+                { url : 'title2/模仿韩冬梅网站效果/index.html', title : '点击切换图片' },
+                { url : 'title2/模仿淘宝便民服务/index.html', title : '模仿淘宝便民服务' },
+                { url : 'title2/鼠标移入切换-淡出效果/index.html', title : '鼠标移入切换-淡出效果' },
+                
+            ],
+            [
+                { title : '表单常用功能'},
+                { url : 'title3/除去字符串里的空格/index.html', title : '除去字符串里的空格' },
+                { url : 'title3/关闭中文输入法.html', title : '关闭中文输入法' },
+                { url : 'title3/禁止用户粘贴复制.html', title : '禁止用户粘贴复制' },
+                { url : 'title3/判断用户是否输入.html', title : '判断用户是否输入' },
+                { url : 'title3/文字自动滚动.html', title : '文字自动滚动' },
+                
+            ],
+           
+        ];
+    for(var i = 0; i < data.length; i++){
+        var items = data[i];
+        var sub = '';
+        for(var j=0; j<items.length; j++){
+            var son = items[j];
+            if(j == 0){
+                sub += '<li><h1><a href="javascript:;" title="' + son.title + '">' + son.title + '</a></h1><dl class="sub-dl">';
+            } else {
+                sub += '<dd><a href="' + son.url + '" target="_blank" title="' + son.title + '">' + son.title + '</a></dd>';
+            }
+            if(j == items.length - 1){
+                sub += '</dl></li>';
+            }
+        }
+        str += sub;
+    }
+    var ol = document.getElementById('ol');
+    ol.innerHTML = str;
+    var h1 = ol.getElementsByTagName('h1');
+    var dl = ol.getElementsByTagName('dl');
+    var tmp = -1;
+    var open = false;
+    for(var i=0; i < h1.length; i++){
+        h1[i].index = i;
+        h1[i].onclick = function(){
+            for(var i=0; i<h1.length; i++){
+                dl[i].style.display = 'none';
+            }
+            if(tmp == this.index && open){
+                dl[this.index].style.display = 'none';
+                open = false;
+            } else {
+                dl[this.index].style.display = 'block';
+                open = true;
+            }
+            tmp = this.index;
+        }
+    }
+
+</script>
+</body>
+</html>
